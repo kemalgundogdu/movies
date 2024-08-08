@@ -1,13 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import "./output.css";
+import { CategoryProvider } from "./context/CategoryContext";
+import { MovieProvider } from "./context/MovieContext";
+import { ShowsProvider } from "./context/ShowsContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+const queryClient = new QueryClient();
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <CategoryProvider>
+        <MovieProvider>
+          <ShowsProvider>
+            <App />
+          </ShowsProvider>
+        </MovieProvider>
+      </CategoryProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
