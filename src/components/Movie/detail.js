@@ -130,7 +130,7 @@ function Detail() {
                             className="w-24 h-24 object-cover rounded-full"
                           />
                           <div
-                            className="text-sm text-center mt-2 whitespace-nowrap"
+                            className="text-sm text-center mt-2"
                           >
                             {actor.name}
                           </div>
