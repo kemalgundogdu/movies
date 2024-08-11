@@ -1,23 +1,9 @@
-import { createContext, useContext, useState, useEffect } from "react";
-import { MovieList } from "../api";
+import { createContext, useContext, useState } from "react";
 
 const MovieContext = createContext();
 
 export const MovieProvider = ({ children }) => {
   const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await MovieList(1);
-        setMovies(data.results);
-      } catch (error) {
-        console.error("Error fetching movie list:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   const values = { movies, setMovies };
 
@@ -27,6 +13,5 @@ export const MovieProvider = ({ children }) => {
     </MovieContext.Provider>
   );
 };
-
 
 export const useMovie = () => useContext(MovieContext);

@@ -38,7 +38,6 @@ const MovieCard = ({
                 )}
                 {overview.length > 0 && overview.length > 130 ? (
                   <>
-                    <div className="text-xs text-gray-400 mb-2">Özet:</div>
                     <p className="text-xs text-gray-100 mb-12">
                       {overview.slice(0, 130)}...
                     </p>

@@ -1,19 +1,28 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
 import { useCategory } from "../../context/CategoryContext";
 
 export default function Navbar() {
   const { categorys } = useCategory();
-
   const [isOpen, setIsOpen] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState(""); // Arama terimi için state
+
+  const navigate = useNavigate(); // useNavigate kullanarak yönlendirme yapacağız
+
+  const handleSearch = (e) => {
+    e.preventDefault(); // Form gönderimini önlemek için
+    if (searchTerm) {
+      navigate(`/search?query=${encodeURIComponent(searchTerm)}`); // Arama sonucuna yönlendirme
+      setSearchTerm(""); // Arama terimini sıfırla
+    }
+  };
 
   return (
     <div>
       <div className="antialiased bg-gray-100">
         <div className="w-full text-gray-700 bg-white">
-          <div className="flex flex-col mx-auto md:items-center md:justify-between md:flex-row">
+          <div className="flex flex-col mx-auto md:items-center md:justify-between md:flex-row gap-5 justify-center">
             <div className="flex flex-row items-center justify-between py-4">
               <NavLink
                 to="/"
@@ -51,17 +60,20 @@ export default function Navbar() {
                 isOpen ? "flex" : "hidden"
               }`}
             >
+              <form onSubmit={handleSearch} className="flex items-center">
+                <input
+                  type="text"
+                  className="w-full md:w-40 ml-auto outline-none border rounded px-2 py-2 md:py-1 text-sm"
+                  placeholder="Film Ara"
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)} // Girdi değiştiğinde state güncelle
+                />
+              </form>
               <NavLink
                 to="/movies"
                 className="whitespace-nowrap px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:shadow-outline"
               >
                 Son Filmler
-              </NavLink>
-              <NavLink
-                to="/tvshows"
-                className="whitespace-nowrap px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:shadow-outline"
-              >
-                Son Diziler
               </NavLink>
               <div
                 className="relative"
@@ -107,7 +119,7 @@ export default function Navbar() {
                 )}
               </div>
               <NavLink
-                to="/artists"
+                to="/people"
                 className="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:outline-none focus:shadow-outline"
               >
                 Sanatçılar

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { MovieDetail, MovieTrailer, MovieCast } from "../../api";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -20,29 +20,17 @@ function Detail() {
     }
   }, [data]);
 
-  useEffect(() => {
-    console.log(details);
-  }, [details]);
-
   // movie trailer
   const { data: trailer } = useQuery({
     queryKey: ["trailer", id],
     queryFn: () => MovieTrailer(id),
   });
 
-  useEffect(() => {
-    console.log(trailer);
-  }, [trailer]);
-
   // movie cast
   const { data: cast } = useQuery({
     queryKey: ["cast", id],
     queryFn: () => MovieCast(id),
   });
-
-  useEffect(() => {
-    console.log(cast);
-  }, [cast]);
 
   return (
     <div
@@ -130,20 +118,24 @@ function Detail() {
                 {cast &&
                   cast.cast.map((actor) => (
                     <SwiperSlide key={actor.id}>
-                      <div className="flex flex-col items-center select-none">
-                        <img
-                          src={
-                            actor.profile_path
-                              ? `http://image.tmdb.org/t/p/w185${actor.profile_path}`
-                              : "https://placehold.jp/ffffff/ffffff/96x96.png"
-                          }
-                          alt={actor.name}
-                          className="w-24 h-24 object-cover rounded-full"
-                        />
-                        <div className="text-sm text-center mt-2 whitespace-nowrap">
-                          {actor.name}
+                      <Link to={`/people/${actor.id}`}>
+                        <div className="flex flex-col items-center select-none">
+                          <img
+                            src={
+                              actor.profile_path
+                                ? `http://image.tmdb.org/t/p/w185${actor.profile_path}`
+                                : "https://placehold.jp/ffffff/ffffff/96x96.png"
+                            }
+                            alt={actor.name}
+                            className="w-24 h-24 object-cover rounded-full"
+                          />
+                          <div
+                            className="text-sm text-center mt-2 whitespace-nowrap"
+                          >
+                            {actor.name}
+                          </div>
                         </div>
-                      </div>
+                      </Link>
                     </SwiperSlide>
                   ))}
               </Swiper>
