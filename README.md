@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+# Photos
+Home Page                 |  Movie Detail Page
+:-------------------------:|:-------------------------:
+![](./homePage.png)  |  ![](./moviePage.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# EN - Movie Information App
 
-## Available Scripts
+This project is a movie information application developed using React and Tailwind CSS. It fetches movie details, trailers, and cast information from The Movie Database (TMDb) API.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Home Page**: Displays a list of popular movies.
+- **Movie Detail Page**: Shows detailed information about a selected movie, including its trailer and cast.
+- **Search Functionality**: Allows users to search for movies by title.
+- **Responsive Design**: The application is fully responsive and works on all devices.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Setup
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To run the project locally, follow these steps:
 
-### `npm test`
+1. Clone this repository:
+    ```bash
+    git clone https://github.com/kemalgundogdu/movies.git
+    ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Navigate to the project directory:
+    ```bash
+    cd movies
+    ```
 
-### `npm run build`
+3. Install the required dependencies:
+    ```bash
+    npm install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Set up the environment variables:
+    Create a `.env` file and add your TMDb API access token:
+    ```plaintext
+    REACT_APP_ACCESS_TOKEN=your_access_token
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+5. Start the project:
+    ```bash
+    npm start
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies Used
 
-### `npm run eject`
+- **React**: For building the user interface.
+- **Tailwind CSS**: For styling and design.
+- **TMDb API**: For fetching movie data.
+- **Axios**: For making API requests.
+- **React Query**: For managing server state.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contributing
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you would like to contribute, please submit a pull request or open an issue.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## License
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+This project is licensed under the MIT License.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# TR - Film Bilgi Uygulaması
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Bu proje, React ve Tailwind CSS kullanılarak geliştirilmiş bir film bilgi uygulamasıdır. The Movie Database (TMDb) API'sinden film detaylarını, fragmanlarını ve oyuncu kadrosunu getirir.
 
-### Code Splitting
+## Özellikler
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **Ana Sayfa**: Popüler filmlerin listesini gösterir.
+- **Film Detay Sayfası**: Seçilen film hakkında detaylı bilgi, fragman ve oyuncu kadrosunu gösterir.
+- **Arama Fonksiyonu**: Kullanıcıların film başlığına göre arama yapmasını sağlar.
+- **Duyarlı Tasarım**: Uygulama tamamen duyarlıdır ve tüm cihazlarda çalışır.
 
-### Analyzing the Bundle Size
+## Kurulum
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Projeyi yerel ortamınızda çalıştırmak için aşağıdaki adımları izleyin:
 
-### Making a Progressive Web App
+1. Bu depoyu klonlayın:
+    ```bash
+    git clone https://github.com/kemalgundogdu/movies.git
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Proje dizinine gidin:
+    ```bash
+    cd movies
+    ```
 
-### Advanced Configuration
+3. Gerekli bağımlılıkları yükleyin:
+    ```bash
+    npm install
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Çevresel değişkenleri ayarlayın:
+    `.env` dosyasını oluşturun ve TMDb API erişim tokeninizi ekleyin:
+    ```plaintext
+    REACT_APP_ACCESS_TOKEN=your_access_token
+    ```
 
-### Deployment
+5. Projeyi başlatın:
+    ```bash
+    npm start
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Kullanılan Teknolojiler
 
-### `npm run build` fails to minify
+- **React**: Kullanıcı arayüzünü oluşturmak için.
+- **Tailwind CSS**: Stil ve tasarım için.
+- **TMDb API**: Film verilerini çekmek için.
+- **Axios**: API isteklerini yapmak için.
+- **React Query**: Sunucu durumunu yönetmek için.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Katkıda Bulunma
+
+Katkıda bulunmak isterseniz, lütfen bir pull request gönderin veya bir issue açın.
+
+## Lisans
+
+Bu proje MIT Lisansı ile lisanslanmıştır.
